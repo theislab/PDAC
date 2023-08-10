@@ -29,8 +29,3 @@ HCA Integration Pipeline: [HCA_Pipeline](https://github.com/HCA-integration/hca_
 
 [Table](https://docs.google.com/document/d/1qPeHYLRsqXcgOQaZI38DZUpeohx0mOZ41Ukxkkr64Q4/edit#bookmark=id.kudtvuwpp1te)
 
-| Task | Responsible | Status |
-|------|-------------|--------|
-|      |             |        |
-|      |             |        |
-|      |             |        |
