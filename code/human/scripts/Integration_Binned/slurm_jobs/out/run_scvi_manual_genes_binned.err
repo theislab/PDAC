@@ -1,0 +1,35 @@
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/anndata/utils.py:429: FutureWarning: Importing read_csv from `anndata` is deprecated. Import anndata.io.read_csv instead.
+  warnings.warn(msg, FutureWarning)
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/anndata/utils.py:429: FutureWarning: Importing read_text from `anndata` is deprecated. Import anndata.io.read_text instead.
+  warnings.warn(msg, FutureWarning)
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/anndata/utils.py:429: FutureWarning: Importing read_excel from `anndata` is deprecated. Import anndata.io.read_excel instead.
+  warnings.warn(msg, FutureWarning)
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/anndata/utils.py:429: FutureWarning: Importing read_mtx from `anndata` is deprecated. Import anndata.io.read_mtx instead.
+  warnings.warn(msg, FutureWarning)
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/anndata/utils.py:429: FutureWarning: Importing read_loom from `anndata` is deprecated. Import anndata.io.read_loom instead.
+  warnings.warn(msg, FutureWarning)
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/anndata/utils.py:429: FutureWarning: Importing read_hdf from `anndata` is deprecated. Import anndata.io.read_hdf instead.
+  warnings.warn(msg, FutureWarning)
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/anndata/utils.py:429: FutureWarning: Importing read_umi_tools from `anndata` is deprecated. Import anndata.io.read_umi_tools instead.
+  warnings.warn(msg, FutureWarning)
+WARNING:root:In order to use the mouse gastrulation seqFISH datsets, please install squidpy (see https://github.com/scverse/squidpy).
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/docrep/decorators.py:43: SyntaxWarning: 'param_categorical_covariate_keys' is not a valid key!
+  doc = func(self, args[0].__doc__, *args[1:], **kwargs)
+/home/aih/shrey.parikh/miniconda3/envs/scarches/lib/python3.10/site-packages/docrep/decorators.py:43: SyntaxWarning: 'param_continuous_covariate_keys' is not a valid key!
+  doc = func(self, args[0].__doc__, *args[1:], **kwargs)
+WARNING:root:In order to use sagenet models, please install pytorch geometric (see https://pytorch-geometric.readthedocs.io) and 
+ captum (see https://github.com/pytorch/captum).
+WARNING:root:mvTCR is not installed. To use mvTCR models, please install it first using "pip install mvtcr"
+WARNING:root:multigrate is not installed. To use multigrate models, please install it first using "pip install multigrate".
+INFO: GPU available: False, used: False
+INFO:lightning.pytorch.utilities.rank_zero:GPU available: False, used: False
+INFO: TPU available: False, using: 0 TPU cores
+INFO:lightning.pytorch.utilities.rank_zero:TPU available: False, using: 0 TPU cores
+INFO: IPU available: False, using: 0 IPUs
+INFO:lightning.pytorch.utilities.rank_zero:IPU available: False, using: 0 IPUs
+INFO: HPU available: False, using: 0 HPUs
+INFO:lightning.pytorch.utilities.rank_zero:HPU available: False, using: 0 HPUs
+INFO: SLURM auto-requeueing enabled. Setting signal handlers.
+INFO:lightning.pytorch.trainer.connectors.signal_connector:SLURM auto-requeueing enabled. Setting signal handlers.
+INFO: `Trainer.fit` stopped: `max_epochs=100` reached.
+INFO:lightning.pytorch.utilities.rank_zero:`Trainer.fit` stopped: `max_epochs=100` reached.
