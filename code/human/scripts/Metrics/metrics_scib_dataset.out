@@ -1,0 +1,1 @@
+OBSM has: <bound method Mapping.keys of AxisArrays with keys: X_pca, X_umap, drvi_emb, drvi_umap, expimap_emb, expimap_umap, scanvi_emb, scanvi_umap, scpoli_emb, scpoli_umap, scvi_emb, scvi_umap, sysvi_emb, sysvi_umap>

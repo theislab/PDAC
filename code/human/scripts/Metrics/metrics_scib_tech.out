@@ -1,0 +1,92 @@
+OBSM has: <bound method Mapping.keys of AxisArrays with keys: X_pca, X_umap, drvi_emb, drvi_umap, expimap_emb, expimap_umap, scanvi_emb, scanvi_umap, scpoli_emb, scpoli_umap, scvi_emb, scvi_umap, sysvi_emb, sysvi_umap>
+[34mINFO    [0m Ambiguous_Epithelial consists of a single batch or is too small. Skip.                                                                  
+[34mINFO    [0m Ambiguous_Immune consists of a single batch or is too small. Skip.                                                                      
+[34mINFO    [0m Ambiguous_Stromal consists of a single batch or is too small. Skip.                                                                     
+[34mINFO    [0m Ductal Cell/Malignant consists of a single batch or is too small. Skip.                                                                 
+[34mINFO    [0m EMT consists of a single batch or is too small. Skip.                                                                                   
+[34mINFO    [0m Erythroid Cell consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Intra-pancreatic Neurons consists of a single batch or is too small. Skip.                                                              
+[34mINFO    [0m NK Cell consists of a single batch or is too small. Skip.                                                                               
+[34mINFO    [0m Natural Killer consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Neuronal Cell consists of a single batch or is too small. Skip.                                                                         
+[34mINFO    [0m Pericyte consists of a single batch or is too small. Skip.                                                                              
+[34mINFO    [0m Schwann Cell consists of a single batch or is too small. Skip.                                                                          
+[34mINFO    [0m Smooth Muscle Cell consists of a single batch or is too small. Skip.                                                                    
+[34mINFO    [0m Ambiguous_Epithelial consists of a single batch or is too small. Skip.                                                                  
+[34mINFO    [0m Ambiguous_Immune consists of a single batch or is too small. Skip.                                                                      
+[34mINFO    [0m Ambiguous_Stromal consists of a single batch or is too small. Skip.                                                                     
+[34mINFO    [0m Ductal Cell/Malignant consists of a single batch or is too small. Skip.                                                                 
+[34mINFO    [0m EMT consists of a single batch or is too small. Skip.                                                                                   
+[34mINFO    [0m Erythroid Cell consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Intra-pancreatic Neurons consists of a single batch or is too small. Skip.                                                              
+[34mINFO    [0m NK Cell consists of a single batch or is too small. Skip.                                                                               
+[34mINFO    [0m Natural Killer consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Neuronal Cell consists of a single batch or is too small. Skip.                                                                         
+[34mINFO    [0m Pericyte consists of a single batch or is too small. Skip.                                                                              
+[34mINFO    [0m Schwann Cell consists of a single batch or is too small. Skip.                                                                          
+[34mINFO    [0m Smooth Muscle Cell consists of a single batch or is too small. Skip.                                                                    
+[34mINFO    [0m Ambiguous_Epithelial consists of a single batch or is too small. Skip.                                                                  
+[34mINFO    [0m Ambiguous_Immune consists of a single batch or is too small. Skip.                                                                      
+[34mINFO    [0m Ambiguous_Stromal consists of a single batch or is too small. Skip.                                                                     
+[34mINFO    [0m Ductal Cell/Malignant consists of a single batch or is too small. Skip.                                                                 
+[34mINFO    [0m EMT consists of a single batch or is too small. Skip.                                                                                   
+[34mINFO    [0m Erythroid Cell consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Intra-pancreatic Neurons consists of a single batch or is too small. Skip.                                                              
+[34mINFO    [0m NK Cell consists of a single batch or is too small. Skip.                                                                               
+[34mINFO    [0m Natural Killer consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Neuronal Cell consists of a single batch or is too small. Skip.                                                                         
+[34mINFO    [0m Pericyte consists of a single batch or is too small. Skip.                                                                              
+[34mINFO    [0m Schwann Cell consists of a single batch or is too small. Skip.                                                                          
+[34mINFO    [0m Smooth Muscle Cell consists of a single batch or is too small. Skip.                                                                    
+[34mINFO    [0m Ambiguous_Epithelial consists of a single batch or is too small. Skip.                                                                  
+[34mINFO    [0m Ambiguous_Immune consists of a single batch or is too small. Skip.                                                                      
+[34mINFO    [0m Ambiguous_Stromal consists of a single batch or is too small. Skip.                                                                     
+[34mINFO    [0m Ductal Cell/Malignant consists of a single batch or is too small. Skip.                                                                 
+[34mINFO    [0m EMT consists of a single batch or is too small. Skip.                                                                                   
+[34mINFO    [0m Erythroid Cell consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Intra-pancreatic Neurons consists of a single batch or is too small. Skip.                                                              
+[34mINFO    [0m NK Cell consists of a single batch or is too small. Skip.                                                                               
+[34mINFO    [0m Natural Killer consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Neuronal Cell consists of a single batch or is too small. Skip.                                                                         
+[34mINFO    [0m Pericyte consists of a single batch or is too small. Skip.                                                                              
+[34mINFO    [0m Schwann Cell consists of a single batch or is too small. Skip.                                                                          
+[34mINFO    [0m Smooth Muscle Cell consists of a single batch or is too small. Skip.                                                                    
+[34mINFO    [0m Ambiguous_Epithelial consists of a single batch or is too small. Skip.                                                                  
+[34mINFO    [0m Ambiguous_Immune consists of a single batch or is too small. Skip.                                                                      
+[34mINFO    [0m Ambiguous_Stromal consists of a single batch or is too small. Skip.                                                                     
+[34mINFO    [0m Ductal Cell/Malignant consists of a single batch or is too small. Skip.                                                                 
+[34mINFO    [0m EMT consists of a single batch or is too small. Skip.                                                                                   
+[34mINFO    [0m Erythroid Cell consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Intra-pancreatic Neurons consists of a single batch or is too small. Skip.                                                              
+[34mINFO    [0m NK Cell consists of a single batch or is too small. Skip.                                                                               
+[34mINFO    [0m Natural Killer consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Neuronal Cell consists of a single batch or is too small. Skip.                                                                         
+[34mINFO    [0m Pericyte consists of a single batch or is too small. Skip.                                                                              
+[34mINFO    [0m Schwann Cell consists of a single batch or is too small. Skip.                                                                          
+[34mINFO    [0m Smooth Muscle Cell consists of a single batch or is too small. Skip.                                                                    
+[34mINFO    [0m Ambiguous_Epithelial consists of a single batch or is too small. Skip.                                                                  
+[34mINFO    [0m Ambiguous_Immune consists of a single batch or is too small. Skip.                                                                      
+[34mINFO    [0m Ambiguous_Stromal consists of a single batch or is too small. Skip.                                                                     
+[34mINFO    [0m Ductal Cell/Malignant consists of a single batch or is too small. Skip.                                                                 
+[34mINFO    [0m EMT consists of a single batch or is too small. Skip.                                                                                   
+[34mINFO    [0m Erythroid Cell consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Intra-pancreatic Neurons consists of a single batch or is too small. Skip.                                                              
+[34mINFO    [0m NK Cell consists of a single batch or is too small. Skip.                                                                               
+[34mINFO    [0m Natural Killer consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Neuronal Cell consists of a single batch or is too small. Skip.                                                                         
+[34mINFO    [0m Pericyte consists of a single batch or is too small. Skip.                                                                              
+[34mINFO    [0m Schwann Cell consists of a single batch or is too small. Skip.                                                                          
+[34mINFO    [0m Smooth Muscle Cell consists of a single batch or is too small. Skip.                                                                    
+[34mINFO    [0m Ambiguous_Epithelial consists of a single batch or is too small. Skip.                                                                  
+[34mINFO    [0m Ambiguous_Immune consists of a single batch or is too small. Skip.                                                                      
+[34mINFO    [0m Ambiguous_Stromal consists of a single batch or is too small. Skip.                                                                     
+[34mINFO    [0m Ductal Cell/Malignant consists of a single batch or is too small. Skip.                                                                 
+[34mINFO    [0m EMT consists of a single batch or is too small. Skip.                                                                                   
+[34mINFO    [0m Erythroid Cell consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Intra-pancreatic Neurons consists of a single batch or is too small. Skip.                                                              
+[34mINFO    [0m NK Cell consists of a single batch or is too small. Skip.                                                                               
+[34mINFO    [0m Natural Killer consists of a single batch or is too small. Skip.                                                                        
+[34mINFO    [0m Neuronal Cell consists of a single batch or is too small. Skip.                                                                         
+[34mINFO    [0m Pericyte consists of a single batch or is too small. Skip.                                                                              
+[34mINFO    [0m Schwann Cell consists of a single batch or is too small. Skip.                                                                          
+[34mINFO    [0m Smooth Muscle Cell consists of a single batch or is too small. Skip.                                                                    
