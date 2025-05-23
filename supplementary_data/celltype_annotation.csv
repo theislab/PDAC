@@ -1,0 +1,71 @@
+Level_4,Level_3,Level_2,Level_1
+CD4+ Memory T Cell,CD4+ T Cell,Lymphoid,Immune Cell
+CD4+ Naive T Cell,CD4+ T Cell,Lymphoid,Immune Cell
+CD4+ Th1 Cell,CD4+ T Cell,Lymphoid,Immune Cell
+CD4+ Th2 Cell,CD4+ T Cell,Lymphoid,Immune Cell
+CD4+ Th17 Cell,CD4+ T Cell,Lymphoid,Immune Cell
+CD4+ Th22 Cell,CD4+ T Cell,Lymphoid,Immune Cell
+T-reg,CD4+ T Cell,Lymphoid,Immune Cell
+Double Positive CD4+CD8+ T Cell,Mixed T Cell,Lymphoid,Immune Cell
+CD8+ Naive T Cell,CD8+ T Cell,Lymphoid,Immune Cell
+CD8+ Effector T Cell,CD8+ T Cell,Lymphoid,Immune Cell
+CD8+ Memory T Cell,CD8+ T Cell,Lymphoid,Immune Cell
+CD8+ Terminal Effector T Cell,CD8+ T Cell,Lymphoid,Immune Cell
+CD8+ Exhausted T Cell,CD8+ T Cell,Lymphoid,Immune Cell
+CD8+ Tissue-Resident Memory T Cell,CD8+ T Cell,Lymphoid,Immune Cell
+γδ T Cell (Vδ1),CD4+ T Cell,Lymphoid,Immune Cell
+NK Cell,NK Cell,Lymphoid,Immune Cell
+B Cell - Naive,B Cell,Lymphoid,Immune Cell
+B Cell - Memory,B Cell,Lymphoid,Immune Cell
+B Cell - Germinal Center,B Cell,Lymphoid,Immune Cell
+B Cell - Activated,B Cell,Lymphoid,Immune Cell
+B-reg,B Cell,Lymphoid,Immune Cell
+Plasmablast,Plasma Cell,Lymphoid,Immune Cell
+Plasma Cell,Plasma Cell,Lymphoid,Immune Cell
+Dendritic Cell - cDC1,Dendritic Cell,Myeloid,Immune Cell
+Dendritic Cell - cDC2,Dendritic Cell,Myeloid,Immune Cell
+Dendritic Cell - pDC,Dendritic Cell,Myeloid,Immune Cell
+Dendritic Cell - Activated,Dendritic Cell,Myeloid,Immune Cell
+Monocyte,Monocyte,Myeloid,Immune Cell
+Macrophage - M1-like TAM,Macrophage,Myeloid,Immune Cell
+Macrophage - M2-like TAM,Macrophage,Myeloid,Immune Cell
+Macrophage - lipid processing TAM,Macrophage,Myeloid,Immune Cell
+Macrophage - CD3+ TAM,Macrophage,Myeloid,Immune Cell
+Macrophage - angiogenic TAM,Macrophage,Myeloid,Immune Cell
+Mast Cell,Mast Cell,Myeloid,Immune Cell
+Neutrophil - N0,Neutrophil,Myeloid,Immune Cell
+Neutrophil - N1,Neutrophil,Myeloid,Immune Cell
+Neutrophil - N2,Neutrophil,Myeloid,Immune Cell
+Malignant Cell - Epithelial,Malignant Cell - Epithelial,Malignant Cell,Epithelial Cell
+Malignant Cell - Highly Proliferative,Malignant Cell - Epithelial,Malignant Cell,Epithelial Cell
+Malignant Cell - EMT,Malignant Cell - EMT,Malignant Cell,Epithelial Cell
+Malignant Cell - Mesenchymal,Malignant Cell - Mesenchymal,Malignant Cell,Epithelial Cell
+Malignant Cell - Hypoxia,Malignant Cell - Epithelial,Malignant Cell,Epithelial Cell
+Malignant Cell - Apoptotic,Malignant Cell - Epithelial,Malignant Cell,Epithelial Cell
+Malignant Cell - Highly Invasive,Malignant Cell - Mesenchymal,Malignant Cell,Epithelial Cell
+Malignant Cell - Senescence,Malignant Cell - Epithelial,Malignant Cell,Epithelial Cell
+Malignant Cell - Acinar-like,Malignant Cell - Epithelial,Malignant Cell,Epithelial Cell
+Malignant Cell - Pit Like,Malignant Cell - Epithelial,Malignant Cell,Epithelial Cell
+myCAF,Cancer Associated Fibroblast,Stromal Cell,Stromal Cell
+iCAF,Cancer Associated Fibroblast,Stromal Cell,Stromal Cell
+apCAF,Cancer Associated Fibroblast,Stromal Cell,Stromal Cell
+Fibroblast,Fibroblast,Stromal Cell,Stromal Cell
+Schwann Cell,Schwann Cell,Stromal Cell,Stromal Cell
+Smooth Muscle Cell,Smooth Muscle Cell,Stromal Cell,Stromal Cell
+Adypocyte,Adipocyte,Stromal Cell,Stromal Cell
+Pericyte,Pericyte,Stromal Cell,Stromal Cell
+Tumor-Associated Endothelial Cell,Endothelial Cell,Endothelial Cell,Stromal Cell
+Vascular Endothelial Cell,Endothelial Cell,Endothelial Cell,Stromal Cell
+Lymphatic Endothelial Cell,Endothelial Cell,Endothelial Cell,Stromal Cell
+Ductal Cell,Ductal Cell,Exocrine Cell,Epithelial Cell
+Ductal Cell (atypical),Ductal Cell (atypical),Exocrine Cell,Epithelial Cell
+ADM Cell,ADM Cell,Exocrine Cell,Epithelial Cell
+Acinar Cell,Acinar Cell,Exocrine Cell,Epithelial Cell
+Acinar (REG+) Cell,Acinar (REG+) Cell,Exocrine Cell,Epithelial Cell
+Acinar Idling Cell,Acinar Idling Cell,Exocrine Cell,Epithelial Cell
+Alpha Cell,Alpha Cell,Endocrine Cell,Epithelial Cell
+Beta Cell,Beta Cell,Endocrine Cell,Epithelial Cell
+Gamma Cell,Gamma Cell,Endocrine Cell,Epithelial Cell
+Delta Cell,Delta Cell,Endocrine Cell,Epithelial Cell
+Epsilon Cell,Epsilon Cell,Endocrine Cell,Epithelial Cell
+Other Endocrine,Other Endocrine,Endocrine Cell,Epithelial Cell
