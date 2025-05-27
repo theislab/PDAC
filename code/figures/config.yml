@@ -1,0 +1,142 @@
+plot_configs:
+  general:
+    dpi: 75
+    dpi_save: 300
+    legend_fontsize: 12
+    legend_fontweight: bold
+    title_fontsize: 14
+    title_fontweight: bold
+  embeddings_plots:
+    alpha: 0.75
+    frameon: false
+    add_outline: true
+    layer: log_norm
+    legend_fontsize: 12
+    outline_color: [black, white]
+    outline_width: [.2, .025]
+    ncols: 1
+    vmax: 'p98'
+    cmap: viridis
+    na_color: white
+    na_in_legend: false
+  continuous_plots:
+    layer: log_norm
+    var_group_rotation: 90
+    cmap: viridis
+  rank_genes_plots:
+    values_to_plot: logfoldchanges
+    vmin: -5
+    vmax: 5
+    var_group_rotation: 90
+    min_logfoldchange: 2
+    cmap: bwr
+palettes:
+  continuous: viridis
+  divergent: bwr
+  level_2:
+    Lymphoid: "#028E95"
+    Myeloid: "#f56d18"
+    Malignant Cell: "#ff0000"
+    Stromal Cell: "#25e907"
+    Endothelial Cell: "#9c0101"
+    Exocrine Cell: "#ea7b95"
+    Endocrine Cell: "#f5d276"
+  level_3:
+    CD4+ T Cell: "#00eeff"
+    Mixed T Cell: "#35b8ff"
+    CD8+ T Cell: "#028E95"
+    NK Cell: "#005C5D"
+    B Cell: "#aeaeff"
+    Plasma Cell: "#9614fb"
+    Dendritic Cell: "#bf7770"
+    Monocyte: "#fcff35"
+    Macrophage: "#f5a213"
+    Mast Cell: "#a16969"
+    Neutrophil: "#f56d18"
+    Malignant Cell - Epithelial: "#ff0000"
+    Malignant Cell - EMT: "#9d0000"
+    Malignant Cell - Mesenchymal: "#720000"
+    Cancer Associated Fibroblast: "#25e907"
+    Fibroblast: "#84b782"
+    Schwann Cell: "#327430"
+    Adipocyte: "#595b1f"
+    Smooth Muscle Cell: "#540000"
+    Pericyte: "#6f3766"
+    Endothelial Cell: "#9c0101"
+    Ductal Cell: "#ea7b95"
+    Ductal Cell (atypical): "#ff5353"
+    ADM Cell: "#d84c92"
+    Acinar Cell: "#ff00dd"
+    Acinar (REG+) Cell: "#fc4ae4"
+    Acinar Idling Cell: "#fd7bec"
+    Epsilon Cell: "#f5d276"
+    Alpha Cell: "#f5c13d"
+    Delta Cell: "#f4b820"
+    Beta Cell: "#c49211"
+    Gamma Cell: "#836928"
+    Other Endocrine: "#614d1a"
+  level_4:
+    CD4+ Naive T Cell: "#496aaf"
+    CD4+ Th1 Cell: "#47a0b3"
+    CD4+ Th2 Cell: "#7ecca5"
+    CD4+ Th17 Cell: "#bfe5a0"
+    CD4+ Th22 Cell: "#edf8a3"
+    T-reg: "#fff7b2"
+    CD4+ Memory T Cell: "#fed683"
+    CD8+ Naive T Cell: "#496aaf"
+    CD8+ Effector T Cell: "#60bba8"
+    CD8+ Terminal Effector T Cell: "#bfe5a0"
+    CD8+ Exhausted T Cell: "#f9fcb5"
+    CD8+ Tissue-Resident Memory T Cell: "#fed683"
+    CD8+ Memory T Cell: "#f7844e"
+    Double Positive CD4+CD8+ T Cell: "#496aaf"
+    γδ T Cell (Vδ1): "#fff7b2"
+    B Cell - Naive: "#496aaf"
+    B Cell - Activated: "#a2d9a4"
+    B Cell - Memory: "#fff7b2"
+    B-reg: "#f7844e"
+    Plasma Cell: "#b81e48"
+    Monocyte: "#b81e48"
+    Macrophage - lipid processing TAM: "#496aaf"
+    Macrophage - M1-like TAM: "#7ecca5"
+    Macrophage - M2-like TAM: "#edf8a3"
+    Macrophage - angiogenic TAM: "#fed683"
+    Macrophage - CD3+ TAM: "#f06744"
+    Dendritic Cell - pDC: "#496aaf"
+    Dendritic Cell - cDC1: "#bfe5a0"
+    Dendritic Cell - cDC2: "#fed683"
+    Neutrophil - N0: "#496aaf"
+    Neutrophil - N1: "#bfe5a0"
+    Neutrophil - N2: "#fed683"
+    NK Cell: "#b81e48"
+    Lymphatic Endothelial Cell: "#496aaf"
+    Vascular Endothelial Cell: "#bfe5a0"
+    Tumor-Associated Endothelial Cell: "#fed683"
+    Malignant Cell - Pit Like: "#496aaf"
+    Malignant Cell - Acinar-like: "#47a0b3"
+    Malignant Cell - Epithelial: "#7ecca5"
+    Malignant Cell - Hypoxia: "#bfe5a0"
+    Malignant Cell - EMT: "#edf8a3"
+    Malignant Cell - Highly Proliferative: "#fff7b2"
+    Malignant Cell - Mesenchymal: "#fed683"
+    Malignant Cell - Highly Invasive: "#fca55d"
+    Malignant Cell - Senescence: "#f06744"
+    Malignant Cell - Apoptotic: "#d23a4e"
+    Pericyte: "#496aaf"
+    Schwann Cell: "#60bba8"
+    Fibroblast: "#bfe5a0"
+    apCAF: "#f9fcb5"
+    iCAF: "#fed683"
+    myCAF: "#f7844e"
+    Acinar Cell: "#496aaf"
+    Acinar Idling Cell: "#bfe5a0"
+    Acinar (REG+) Cell: "#fed683"
+    ADM Cell: "#b81e48"
+    Ductal Cell: "#496aaf"
+    Ductal Cell (atypical): "#fff7b2"
+    Alpha Cell: "#b81e48"
+    Beta Cell: "#b81e48"
+    Gamma Cell: "#b81e48"
+    Delta Cell: "#b81e48"
+    Epsilon Cell: "#b81e48"
+    Adipocyte: "#b81e48"
