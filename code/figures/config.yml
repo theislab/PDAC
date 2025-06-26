@@ -98,7 +98,7 @@ palettes:
     Plasma Cell: "#b81e48"
     Monocyte: "#b81e48"
     Macrophage - lipid processing TAM: "#496aaf"
-    Macrophage - CD74+ antigen processing TAM: "#7ecca5"
+    Macrophage - antigen processing TAM: "#7ecca5"
     Macrophage - C1Q+ TAM: "#edf8a3"
     Macrophage - angiogenic TAM: "#fed683"
     Macrophage - CD3+ TAM: "#f06744"
