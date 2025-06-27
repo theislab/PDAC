@@ -6,6 +6,7 @@ plot_configs:
     legend_fontweight: bold
     title_fontsize: 14
     title_fontweight: bold
+    font_family: "DejaVu Sans"
   embeddings_plots:
     alpha: 0.75
     frameon: false
@@ -33,7 +34,7 @@ plot_configs:
 palettes:
   continuous: viridis
   divergent: bwr
-  level_2:
+  Level_2:
     Lymphoid: "#028E95"
     Myeloid: "#f56d18"
     Malignant Cell: "#ff0000"
@@ -41,7 +42,7 @@ palettes:
     Endothelial Cell: "#9c0101"
     Exocrine Cell: "#ea7b95"
     Endocrine Cell: "#f5d276"
-  level_3:
+  Level_3:
     CD4+ T Cell: "#00eeff"
     Mixed T Cell: "#35b8ff"
     CD8+ T Cell: "#028E95"
@@ -75,7 +76,7 @@ palettes:
     Beta Cell: "#c49211"
     Gamma Cell: "#836928"
     Other Endocrine: "#614d1a"
-  level_4:
+  Level_4:
     CD4+ Naive T Cell: "#496aaf"
     CD4+ Th1 Cell: "#47a0b3"
     CD4+ Th2 Cell: "#7ecca5"
