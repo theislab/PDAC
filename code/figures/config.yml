@@ -143,19 +143,26 @@ palettes:
     Adipocyte: "#b81e48"
 
   Model: 
-        orthotopic: "#0072B2"  # Blue
-        endogenous:   "#D55E00"   # Vermillion
+    orthotopic: "#0072B2"  # Blue
+    endogenous:   "#D55E00"   # Vermillion
+
+  Data_Source:
+    in house:      "#56B4E9" # Sky Blue
+    public data:   "#999999" # Grey
 
   Dataset: 
-        "in_house":      "#56B4E9" # Sky Blue
-        "Chen_2024":     "#E69F00"  # Orange
-        "Donahue_2024":  "#009E73"  # Green
-        "Rupert_2025":   "#F0E442"  # Yellow
-        "Chen_2021":     "#CC79A7"  # Pink
-        "Carstens_2021": "#999999"  # Grey
-        "Han_2023":      "#B79F00"  # Olive (replaces black)
-        "Erdem_2024":    "#A65628"  # Brown
+    in_house:      "#56B4E9" # Sky Blue
+    Chen_2024:     "#E69F00"  # Orange
+    Donahue_2024:  "#009E73"  # Green
+    Rupert_2025:   "#F0E442"  # Yellow
+    Chen_2021:     "#CC79A7"  # Pink
+    Carstens_2021: "#999999"  # Grey
+    Han_2023:      "#B79F00"  # Olive 
+    Erdem_2024:    "#A65628"  # Brown
 
   TreatmentStatus: 
-        "Untreated": "#BBBBBB"  # Light Grey
-        "Treated":   "#E41A1C"     # Vivid Red
+    Untreated: "#BBBBBB"  # Light Grey
+    Treated:   "#E41A1C"     # Vivid Red
+
+  
+
