@@ -42,40 +42,41 @@ palettes:
     Endothelial Cell: "#9c0101"
     Exocrine Cell: "#ea7b95"
     Endocrine Cell: "#f5d276"
-  Level_3:
-    CD4+ T Cell: "#00eeff"
-    Mixed T Cell: "#35b8ff"
-    CD8+ T Cell: "#028E95"
-    NK Cell: "#005C5D"
-    B Cell: "#aeaeff"
-    Plasma Cell: "#9614fb"
-    Dendritic Cell: "#bf7770"
-    Monocyte: "#fcff35"
-    Macrophage: "#f5a213"
-    Mast Cell: "#a16969"
-    Neutrophil: "#f56d18"
-    Malignant Cell - Epithelial: "#ff0000"
-    Malignant Cell - EMT: "#9d0000"
-    Malignant Cell - Mesenchymal: "#720000"
-    Cancer Associated Fibroblast: "#25e907"
-    Fibroblast: "#84b782"
-    Schwann Cell: "#327430"
-    Adipocyte: "#595b1f"
-    Smooth Muscle Cell: "#540000"
-    Pericyte: "#6f3766"
-    Endothelial Cell: "#9c0101"
-    Ductal Cell: "#ea7b95"
-    Ductal Cell (atypical): "#ff5353"
-    ADM Cell: "#d84c92"
-    Acinar Cell: "#ff00dd"
-    Acinar (REG+) Cell: "#fc4ae4"
-    Acinar Idling Cell: "#fd7bec"
-    Epsilon Cell: "#f5d276"
-    Alpha Cell: "#f5c13d"
-    Delta Cell: "#f4b820"
-    Beta Cell: "#c49211"
-    Gamma Cell: "#836928"
-    Other Endocrine: "#614d1a"
+  Level_3: ##updated by daniele
+    Macrophage:                   "#8b4513"
+    Acinar (REG+) Cell:           "#8a2be2"
+    Malignant Cell - Mesenchymal: "#483d8b"
+    B Cell:                       "#b03060"
+    Cancer Associated Fibroblast: "#dc143c"
+    Malignant Cell - Epithelial:  "#008b8b"
+    Monocyte:                     "#808000"
+    Epsilon Cell:                 "#ff8c00"
+    CD4+ T Cell:                  "#8fbc8f"
+    Ductal Cell:                  "#ffd700"
+    Ductal Cell (atypical):       "#00ff00"
+    Fibroblast:                   "#dc143c"
+    NK Cell:                      "#ff4500"
+    Mixed T Cell:                 "#800080"
+    Gamma Cell:                   "#add8e6"
+    CD8+ T Cell:                  "#00008b"
+    Neutrophil:                   "#006400"
+    Malignant Cell - EMT:         "#bc8f8f"
+    Endothelial Cell:             "#dda0dd"
+    Alpha Cell:                   "#1e90ff"
+    ADM Cell:                     "#00ff00"
+    Dendritic Cell:               "#00fa9a"
+    Beta Cell:                    "#ff00ff"
+    Acinar Idling Cell:           "#dc143c"
+    Delta Cell:                   "#00bfff"
+    Acinar Cell:                  "#00ffff"
+    Plasma Cell:                  "#0000ff"
+    Adipocyte:                    "#adff2f"
+    Mast Cell:                    "#ffe4c4"
+    Other Endocrine:              "#000000"
+    Pericyte:                     "#ff1493"
+    Schwann Cell:                 "#a5a5a5"
+    Smooth Muscle Cell:           "#b22222"
+
   Level_4:
     CD4+ Naive T Cell: "#496aaf"
     CD4+ Th1 Cell: "#47a0b3"
@@ -142,15 +143,15 @@ palettes:
     Epsilon Cell: "#b81e48"
     Adipocyte: "#b81e48"
 
-  Model: 
+  Model: #added by philipp
     orthotopic: "#0072B2"  # Blue
     endogenous:   "#D55E00"   # Vermillion
 
-  Data_Source:
+  Data_Source: #added by philipp
     in house:      "#56B4E9" # Sky Blue
     public data:   "#999999" # Grey
 
-  Dataset: 
+  Dataset: #added by philipp
     in_house:      "#56B4E9" # Sky Blue
     Chen_2024:     "#E69F00"  # Orange
     Donahue_2024:  "#009E73"  # Green
@@ -160,7 +161,7 @@ palettes:
     Han_2023:      "#B79F00"  # Olive 
     Erdem_2024:    "#A65628"  # Brown
 
-  TreatmentStatus: 
+  TreatmentStatus: #added by philipp
     Untreated: "#BBBBBB"  # Light Grey
     Treated:   "#E41A1C"     # Vivid Red
 
