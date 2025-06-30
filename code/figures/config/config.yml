@@ -77,7 +77,153 @@ palettes:
     Schwann Cell:                 "#a5a5a5"
     Smooth Muscle Cell:           "#b22222"
 
+
   Level_4:
+    'Acinar (REG+) Cell': '#a6cee3'
+    'Acinar Cell': '#b2df8a'
+    'Acinar Idling Cell': '#fdbf6f'
+    'ADM Cell': '#cab2d6'
+    'Adipocyte': '#ffff99'
+    'Alpha Cell': '#b15928'
+    'apCAF': '#1f78b4'
+    'B Cell - Activated': '#1f78b4'
+    'B Cell - Germinal Center': '#33a02c'
+    'B Cell - Memory': '#e31a1c'
+    'B Cell - Naive': '#6a3d9a'
+    'B-reg': '#b15928'
+    'Beta Cell': '#1f78b4'
+    'CD4+ Memory T Cell': '#a6cee3'
+    'CD4+ Naive T Cell': '#b2df8a'
+    'CD4+ Th1 Cell': '#fb9a99'
+    'CD4+ Th17 Cell': '#e31a1c'
+    'CD4+ Th2 Cell': '#cab2d6'
+    'CD4+ Th22 Cell': '#1f78b4'
+    'CD8+ Effector T Cell': '#a6cee3'
+    'CD8+ Memory T Cell': '#b2df8a'
+    'CD8+ Naive T Cell': '#fb9a99'
+    'CD8+ Terminal Effector T Cell': '#cab2d6'
+    'CD8+ Tissue-Resident Memory T Cell': '#b15928'
+    'CD8+ Exhausted T Cell': '#33a02c' 
+    'Dendritic Cell - Activated': '#e377c2'
+    'Dendritic Cell - cDC1': '#1f78b4'
+    'Dendritic Cell - cDC2': '#e31a1c'
+    'Dendritic Cell - pDC': '#6a3d9a'
+    'Delta Cell': '#bcbd22'
+    'Double Positive CD4+CD8+ T Cell': '#e31a1c'
+    'Ductal Cell': '#17becf'
+    'Ductal Cell (atypical)': '#9edae5'
+    'Epsilon Cell': '#393b79'
+    'Fibroblast': '#5254a3'
+    'Gamma Cell': '#6b6ecf'
+    'γδ T Cell (Vδ1)': '#6a3d9a'
+    'iCAF': '#9c9ede'
+    'Lymphatic Endothelial Cell': '#637939'
+    'Macrophage - angiogenic TAM': '#1f78b4'
+    'Macrophage - antigen processing TAM': '#ff7f00'
+    'Macrophage - CD3+ TAM': '#e31a1c'
+    'Macrophage - C1Q+ TAM': '#6a3d9a'
+    'Macrophage - lipid processing TAM': '#b15928'
+    'Malignant Cell - Pit Like': "#a6cee3"
+    'Malignant Cell - Acinar-like': "#b2df8a"
+    'Malignant Cell - Epithelial': "#fb9a99"
+    'Malignant Cell - Hypoxia': "#fdbf6f"
+    'Malignant Cell - EMT': "#cab2d6"
+    'Malignant Cell - Highly Proliferative': "#e31a1c"
+    'Malignant Cell - Mesenchymal': "#fed683"
+    'Malignant Cell - Highly Invasive': "#6a3d9a"
+    'Malignant Cell - Senescence': "#1f78b4"
+    'Malignant Cell - Apoptotic': "#b15928"
+    'Mast Cell': '#393b79'
+    'Monocyte': '#6b6ecf'
+    'myCAF': '#9c9ede'
+    'Neutrophil - N0': '#1f78b4'
+    'Neutrophil - N1': '#33a02c'
+    'Neutrophil - N2': '#b15928'
+    'NK Cell': '#cedb9c'
+    'Other Endocrine': '#8c6d31'
+    'Pericyte': '#bd9e39'
+    'Plasma Cell': '#e7ba52'
+    'Plasmablast': '#e7969c'
+    'Schwann Cell': '#843c39'
+    'Smooth Muscle Cell': '#ad494a'
+    'T-reg': '#b15928'
+    'Tumor-Associated Endothelial Cell': '#7b4173'
+    'Vascular Endothelial Cell': '#a55194'
+
+  Level_4_Daniele_2:
+    'Macrophage - C1Q+ TAM': '#006400'
+    'Macrophage - antigen processing TAM': '#00008b'
+    'Acinar (REG+) Cell': '#006400'
+    'Malignant Cell - Mesenchymal': '#006400'
+    'B Cell - Naive': '#006400'
+    'myCAF': '#006400'
+    'Malignant Cell - Pit Like': '#006400'
+    'Malignant Cell - Hypoxia': '#00008b'
+    'Monocyte': '#006400'
+    'Malignant Cell - Highly Proliferative': '#ff0000'
+    'B-reg': '#00008b'
+    'Epsilon Cell': '#006400'
+    'γδ T Cell (Vδ1)': '#006400'
+    'Ductal Cell': '#006400'
+    'CD4+ Th1 Cell': '#00008b'
+    'Fibroblast': '#006400' 
+    'NK Cell': '#006400' 
+    'B Cell - Activated': '#ff0000' 
+    'Double Positive CD4+CD8+ T Cell': '#006400' 
+    'Gamma Cell': '#006400' 
+    'CD8+ Naive T Cell': '#006400' 
+    'Neutrophil - N1': '#006400' 
+    'Malignant Cell - EMT': '#006400' 
+    'Neutrophil - N0': '#00008b' 
+    'Vascular Endothelial Cell': '#006400'
+    'Malignant Cell - Senescence': '#ff4500' 
+    'Alpha Cell': '#006400' 
+    'CD4+ Th22 Cell': '#ff0000' 
+    'CD8+ Exhausted T Cell': '#00008b' 
+    'Macrophage - angiogenic TAM': '#ff0000' 
+    'Malignant Cell - Apoptotic': '#ffd700' 
+    'Malignant Cell - Epithelial': '#00ff00' 
+    'T-reg': '#ff4500' 
+    'Macrophage - CD3+ TAM': '#ff4500' 
+    'ADM Cell': '#006400' 
+    'Malignant Cell - Highly Invasive': '#00008b' 
+    'Dendritic Cell - cDC1': '#006400' 
+    'Lymphatic Endothelial Cell': '#00008b' 
+    'CD4+ Naive T Cell': '#ffd700' 
+    'Macrophage - lipid processing TAM': '#ffd700' 
+    'CD4+ Th17 Cell': '#00ff00' 
+    'Malignant Cell - Acinar-like': '#c71585' 
+    'apCAF': '#00008b' 
+    'Beta Cell': '#006400' 
+    'CD4+ Th2 Cell': '#c71585' 
+    'Tumor-Associated Endothelial Cell': '#ff0000' 
+    'Neutrophil - N2': '#ff0000' 
+    'B Cell - Memory': '#ff4500' 
+    'Acinar Idling Cell': '#006400' 
+    'CD8+ Tissue-Resident Memory T Cell': '#ff0000' 
+    'iCAF': '#ff0000' 
+    'CD4+ Memory T Cell': '#6495ed' 
+    'Dendritic Cell - pDC': '#00008b' 
+    'CD8+ Effector T Cell': '#ff4500' 
+    'Dendritic Cell - cDC2': '#ff0000' 
+    'Delta Cell': '#006400' 
+    'Acinar Cell': '#006400' 
+    'CD8+ Terminal Effector T Cell': '#ffd700' 
+    'CD8+ Memory T Cell': '#00ff00' 
+    'Plasma Cell': '#006400' 
+    'Adipocyte': '#006400' 
+    'Mast Cell': '#006400' 
+    'Plasmablast': '#00008b' 
+    'Macrophage - antigen processing TAM': '#00ff00' 
+    'Schwann Cell': '#006400' 
+    'Ductal Cell (atypical)': '#006400'
+    'B Cell - Germinal Center': '#ffd700' 
+    'Other Endocrine': '#006400' 
+    'Dendritic Cell - Activated': '#ff4500' 
+    'Pericyte': '#006400' 
+    'Smooth Muscle Cell': '#006400'
+
+  Level_4_old:
     CD4+ Naive T Cell: "#496aaf"
     CD4+ Th1 Cell: "#47a0b3"
     CD4+ Th2 Cell: "#7ecca5"
@@ -148,8 +294,8 @@ palettes:
     endogenous:   "#D55E00"   # Vermillion
 
   Data_Source: #added by philipp
-    in house:      "#56B4E9" # Sky Blue
-    public data:   "#999999" # Grey
+    in house:      "#d55607" #
+    public data:   "#f6a974" # Grey
 
   Dataset: #added by philipp
     in_house:      "#56B4E9" # Sky Blue
@@ -162,8 +308,24 @@ palettes:
     Erdem_2024:    "#A65628"  # Brown
 
   TreatmentStatus: #added by philipp
-    Untreated: "#BBBBBB"  # Light Grey
+    Untreated: "#999999"  #  Grey
     Treated:   "#E41A1C"     # Vivid Red
 
-  
+  TreatmentType: ##added by philipp
+    Untreated: "#999999"  # Grey
+    Chemotherapy: "#0b559f"
+    Chemotherapy + Radiotherapy: "#5fa8d3"
+    Chemotherapy + Radiotherapy + Immunotherapy: "#bad6eb"
+    Other: "#ff7f00"
 
+  Is_Core: ##added by philipp
+    Core: "#0b559f"
+    Extension: "#bad6eb"
+
+  Sex: #added by philipp
+    male: "#56B4E9"
+    female: "#CC79A7"
+
+  
+  
+###dark blue for public

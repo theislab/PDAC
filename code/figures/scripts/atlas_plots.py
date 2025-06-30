@@ -77,21 +77,18 @@ class AtlasPlotting:
         if mask_values is None:
             mask_values = adata.obs[mask_column].unique().tolist()
 
-        # Create a new column with only the mask_values, others set to 'Other'
         color_col_filtered = f"{color_by}_filtered"
         adata.obs[color_col_filtered] = adata.obs[color_by].astype(str)
-        adata.obs.loc[~adata.obs[color_by].isin(mask_values), color_col_filtered] = 'other'
-
-        # Convert to categorical with mask_values + 'Other'
-        categories = list(mask_values) + ['other']
+        adata.obs.loc[~adata.obs[color_by].isin(mask_values), color_col_filtered] = np.nan
+        categories = list(mask_values)
         adata.obs[color_col_filtered] = pd.Categorical(
             adata.obs[color_col_filtered],
             categories=categories
         )
 
-        #use palette for mask_values, lightgrey for rest ##lightblue if no value found
+        #use palette for mask_values,for rest ##lightblue if no value found
         palette = self.config['palettes'].get(color_by, {})
-        new_palette = [palette.get(ct, "skyblue") for ct in mask_values] + ["lightgrey"]
+        new_palette = [palette.get(ct, "skyblue") for ct in mask_values] 
         adata.uns[f"{color_col_filtered}_colors"] = new_palette
 
         # Generate masked UMAP plots
@@ -100,6 +97,9 @@ class AtlasPlotting:
             color=color_col_filtered,
             legend_loc=None,
             show=False,
+            na_color="white",
+            outline_width=(0.1,0.05),
+            add_outline=True,
             title=figure_name,
             frameon=False,
             save=f"_{dir_name}_masked_colored_{color_by}.png"
@@ -109,6 +109,10 @@ class AtlasPlotting:
             adata,
             color=color_col_filtered,
             show=False,
+            na_color="white",
+            outline_width=(0.1,0.05),
+            add_outline=True,
+            na_in_legend=False,
             title=figure_name,
             frameon=False,
             save=f"_{dir_name}_masked_colored_{color_by}_legend.png"
@@ -125,6 +129,10 @@ class AtlasPlotting:
             adata_subset,
             color=color_by,
             show=False,
+            na_color="white",
+            add_outline=True,
+            outline_width=(0.1,0.05),
+            na_in_legend=False,
             title=figure_name,
             frameon=False,
             save=f"_{dir_name}_subset_only_{color_by}_legend.png"
@@ -132,16 +140,11 @@ class AtlasPlotting:
 
 
     def create_masked_umap_highlight(self, adata, mask_column, mask_values=None,
-                      color_by='Level_4', figure_name=None, 
-                      highlight_size=3, background_size=0.25):
-        """
-        Create masked UMAP plots showing only specific cell populations, highlighted cells have bigger dots.
-        """
+                                color_by='Level_4', figure_name=None,
+                                highlight_size=1.5, background_size=0.25,ordered=True):
+
         print(f"Creating masked UMAP plots for {mask_column}")
-        if figure_name is None:
-            raise ValueError("figure_name must be provided")
-        
-        # Create subdirectory for this figure
+
         dir_name = figure_name.replace(" ", "_")
         figure_dir = self.output_dir / dir_name
         figure_dir.mkdir(parents=True, exist_ok=True)
@@ -153,50 +156,63 @@ class AtlasPlotting:
         if mask_values is None:
             mask_values = adata.obs[mask_column].unique().tolist()
         
-        # Create filtered color column
         color_col_filtered = f"{color_by}_filtered"
         adata.obs[color_col_filtered] = adata.obs[color_by].astype(str)
-        adata.obs.loc[~adata.obs[color_by].isin(mask_values), color_col_filtered] = 'other'
+        adata.obs.loc[~adata.obs[color_by].isin(mask_values), color_col_filtered] = np.nan
         
-        # Create size column - larger for highlighted cells, smaller for background
         size_col = f"{color_col_filtered}_sizes"
         adata.obs[size_col] = background_size  # default small size
-        adata.obs.loc[adata.obs[color_col_filtered] != 'other', size_col] = highlight_size
-        
-        # Convert to categorical
-        categories = list(mask_values) + ['other']
+        #adata.obs.loc[adata.obs[color_col_filtered] != np.nan, size_col] = highlight_size
+        adata.obs.loc[~pd.isna(adata.obs[color_col_filtered]), size_col] = highlight_size
+        #categories = list(mask_values)
+        mask_value_counts = adata.obs[color_by].value_counts()
+        mask_values_ordered = sorted(mask_values, key=lambda x: mask_value_counts.get(x, 0),reverse=True)
+        categories = mask_values_ordered
+  
+        #categories = [np.nan] + list(mask_values)
         adata.obs[color_col_filtered] = pd.Categorical(
             adata.obs[color_col_filtered],
             categories=categories
         )
         
-        # Set up colors
         palette = self.config['palettes'].get(color_by, {})
-        new_palette = [palette.get(ct, "skyblue") for ct in mask_values] + ["lightgrey"]
+        new_palette = [palette.get(ct, "skyblue") for ct in mask_values_ordered] #mask_values
         adata.uns[f"{color_col_filtered}_colors"] = new_palette
         
-        # Generate masked UMAP plots with variable sizes
+        if ordered:
+            sort_idx = adata.obs[color_col_filtered].cat.codes.argsort(kind='stable')
+            adata = adata[sort_idx, :]
+        
+        
         sc.pl.umap(
             adata,
             color=color_col_filtered,
-            size=adata.obs[size_col], 
+            size=adata.obs[size_col],
             legend_loc=None,
+            na_color="white",
+            outline_width=(0.1,0.05),
+            add_outline=True,
+            sort_order=False,
             show=False,
             title=figure_name,
             frameon=False,
-            save=f"_{dir_name}_masked_colored_{color_by}_highlight.png"
+            save=f"_{dir_name}_masked_colored_{color_by}_{str(highlight_size)}_highlight.png"
         )
-
+        
         sc.pl.umap(
             adata,
             color=color_col_filtered,
-            size=adata.obs[size_col], 
+            size=adata.obs[size_col],
             show=False,
+            na_color="white",
+            outline_width=(0.1,0.05),
+            add_outline=True,
+            sort_order=False,
+            na_in_legend=False,
             title=figure_name,
             frameon=False,
-            save=f"_{dir_name}_masked_colored_{color_by}_legend_highlight.png"
+            save=f"_{dir_name}_masked_colored_{color_by}_{str(highlight_size)}_legend_highlight.png"
         )
-
         
 ##### Compositional plots #####
 
@@ -246,14 +262,7 @@ class AtlasPlotting:
         ax.set_ylim(0, 1.0)
         ax.set_axisbelow(True)
 
-        '''
-        if order_values and order_color_dict:
-            bar_height = 0.03
-            for i, val in enumerate(order_values):
-                ax.barh(y=-bar_height/2, width=1, left=i-0.5, height=bar_height, 
-                        color=order_color_dict[val], clip_on=False)
-           ax.set_ylim(-bar_height, 1.0)
-        '''
+
         # Color bar below heatmap
         if order_values and order_color_dict:
             bar_height = 0.025
@@ -509,7 +518,8 @@ class AtlasPlotting:
         ax.set_ylabel("Number of Samples", fontsize=12)
         if xlabel:
             ax.set_xlabel(xlabel, fontsize=12,labelpad=10)
-        ax.set_xlabel(level_column.replace("_", " ").title(), fontsize=12,labelpad=10)
+        else:
+            ax.set_xlabel(level_column.replace("_", " ").title(), fontsize=12,labelpad=10)
         ax.tick_params(axis='x', rotation=90)
         ax.tick_params(axis='both', width=1.8)
         [sp.set_linewidth(1.8) for sp in ax.spines.values()]
@@ -524,7 +534,8 @@ class AtlasPlotting:
         ax.set_ylabel("Number of Cells", fontsize=12)
         if xlabel:
             ax.set_xlabel(xlabel, fontsize=12,labelpad=10)
-        ax.set_xlabel(level_column.replace("_", " ").title(), fontsize=12,labelpad=10)
+        else:
+            ax.set_xlabel(level_column.replace("_", " ").title(), fontsize=12,labelpad=10)
         ax.tick_params(axis='x', rotation=90)
         ax.tick_params(axis='both', width=1.8)
         [sp.set_linewidth(1.8) for sp in ax.spines.values()]
@@ -542,4 +553,167 @@ class AtlasPlotting:
                         bbox_inches='tight', facecolor='white')
             print(f"Figure saved to: {save_path}")
 
-        return fig
+        fig_grey = plt.figure(figsize=figsize)
+        gs = gridspec.GridSpec(2, 2, height_ratios=[1, 2])
+        axs = []
+
+    
+        ax = fig_grey.add_subplot(gs[:, 0])
+        ax.bar(sorted_categories, sample_counts.values, color="grey")
+        ax.set_title("Samples per Category",
+                    fontsize=self.config["plot_configs"]["general"]["title_fontsize"],
+                    fontweight=self.config["plot_configs"]["general"]["title_fontweight"])
+        ax.set_ylabel("Number of Samples", fontsize=12)
+        if xlabel:
+            ax.set_xlabel(xlabel, fontsize=12,labelpad=10)
+        else:
+            ax.set_xlabel(level_column.replace("_", " ").title(), fontsize=12,labelpad=10)
+        ax.tick_params(axis='x', rotation=90)
+        ax.tick_params(axis='both', width=1.8)
+        [sp.set_linewidth(1.8) for sp in ax.spines.values()]
+        ax.grid(False)
+
+       
+        ax = fig_grey.add_subplot(gs[:, 1])
+        ax.bar(sorted_categories, cell_counts.values, color="grey")
+        ax.set_title("Cells per Category",
+                    fontsize=self.config["plot_configs"]["general"]["title_fontsize"],
+                    fontweight=self.config["plot_configs"]["general"]["title_fontweight"])
+        ax.set_ylabel("Number of Cells", fontsize=12)
+        if xlabel:
+            ax.set_xlabel(xlabel, fontsize=12,labelpad=10)
+        else:
+            ax.set_xlabel(level_column.replace("_", " ").title(), fontsize=12,labelpad=10)
+        ax.tick_params(axis='x', rotation=90)
+        ax.tick_params(axis='both', width=1.8)
+        [sp.set_linewidth(1.8) for sp in ax.spines.values()]
+        ax.grid(False)
+
+
+        plt.tight_layout(rect=[0, 0, 1, 0.95])
+
+        # Save
+        if save_name is not None:
+            save_dir = self.output_dir / "sample_cell_counts"
+            save_dir.mkdir(parents=True, exist_ok=True)
+            save_path = save_dir / f"{save_name}_all_grey.png"
+            fig_grey.savefig(save_path, dpi=self.config['plot_configs']['general']['dpi_save'],
+                        bbox_inches='tight', facecolor='white')
+            print(f"Figure saved to: {save_path}")
+
+        return fig , fig_grey
+    
+    def matrix_markers(self, adata, groupby_column, n_markers=5, method="wilcoxon",
+                    standard_scale="var", figsize=(12, 8), title=None, save_name=None,
+                     **kwargs):
+        
+        if groupby_column not in adata.obs.columns:
+            raise ValueError(f"Groupby column '{groupby_column}' not found in adata.obs")
+        
+        print(f"Computing marker genes for '{groupby_column}' using {method} method...")
+        
+        # Get config values
+        general_config = self.config["plot_configs"]["general"]
+        rank_genes_config = self.config["plot_configs"]["rank_genes_plots"]
+        
+        # Use layer from config if not specified in kwargs
+        layer = kwargs.pop('layer', rank_genes_config.get("layer", "log_norm"))
+        
+        # Compute dendrogram for hierarchical clustering of groups
+        sc.tl.dendrogram(adata, groupby=groupby_column)
+        
+        # Compute marker genes with config parameters
+        sc.tl.rank_genes_groups(
+            adata, 
+            groupby=groupby_column, 
+            method=method,
+            layer=layer,
+            min_logfoldchange=rank_genes_config.get("min_logfoldchange", 2)
+        )
+        
+        # Generate dotplot
+        print("Generating dotplot...")
+        fig_dot = plt.figure(figsize=figsize, dpi=general_config["dpi"])
+        
+        # Set font family for the plot
+        plt.rcParams['font.family'] = general_config["font_family"]
+        
+        sc.pl.rank_genes_groups_dotplot(
+            adata,
+            groupby=groupby_column,
+            standard_scale=standard_scale,
+            n_genes=n_markers,
+            use_raw=False,
+            layer=layer,
+            ax=fig_dot.gca(),
+            var_group_rotation=rank_genes_config.get("var_group_rotation", 90),
+            values_to_plot=rank_genes_config.get("values_to_plot", "logfoldchanges"),
+            vmin=rank_genes_config.get("vmin", -5),
+            vmax=rank_genes_config.get("vmax", 5),
+            cmap=rank_genes_config.get("cmap", "bwr"),
+            **kwargs
+        )
+        
+        # Apply styling from config
+        ax_dot = fig_dot.gca()
+        if title:
+            ax_dot.set_title(f"{title} - Dotplot",
+                            fontsize=general_config["title_fontsize"],
+                            fontweight=general_config["title_fontweight"])
+        else:
+            ax_dot.set_title(f"Top {n_markers} Marker Genes - Dotplot",
+                            fontsize=general_config["title_fontsize"],
+                            fontweight=general_config["title_fontweight"])
+        
+        # Update legend styling
+        legend = ax_dot.get_legend()
+        if legend:
+            for text in legend.get_texts():
+                text.set_fontsize(general_config["legend_fontsize"])
+                text.set_fontweight(general_config["legend_fontweight"])
+        
+        plt.tight_layout()
+        
+        # Save dotplot
+        if save_name is not None:
+            save_dir = self.output_dir / "marker_analysis"
+            save_dir.mkdir(parents=True, exist_ok=True)
+            save_path = save_dir / f"{save_name}_dotplot.png"
+            fig_dot.savefig(save_path, 
+                        dpi=general_config['dpi_save'],
+                        bbox_inches='tight', 
+                        facecolor='white')
+            print(f"Dotplot saved to: {save_path}")
+        
+        # Generate matrixplot
+        print("Generating matrixplot...")
+        fig_matrix = plt.figure(figsize=figsize, dpi=general_config["dpi"])
+        
+        sc.pl.rank_genes_groups_matrixplot(
+            adata,
+            groupby=groupby_column,
+            standard_scale=standard_scale,
+            n_genes=n_markers,
+            use_raw=False,
+            layer=layer,
+            ax=fig_matrix.gca(),
+            var_group_rotation=rank_genes_config.get("var_group_rotation", 90),
+            values_to_plot=rank_genes_config.get("values_to_plot", "logfoldchanges"),
+            vmin=rank_genes_config.get("vmin", -5),
+            vmax=rank_genes_config.get("vmax", 5),
+            cmap=rank_genes_config.get("cmap", "bwr"),
+            **kwargs
+        )
+        
+        plt.tight_layout()
+        
+        # Save matrixplot
+        if save_name is not None:
+            save_path = save_dir / f"{save_name}_matrixplot.png"
+            fig_matrix.savefig(save_path, 
+                            dpi=general_config['dpi_save'],
+                            bbox_inches='tight', 
+                            facecolor='white')
+            print(f"Matrixplot saved to: {save_path}")
+        
+        return fig_dot, fig_matrix
