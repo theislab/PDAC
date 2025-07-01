@@ -13,6 +13,9 @@ import warnings
 from collections import Counter
 from scipy.spatial.distance import pdist, squareform
 from scipy.cluster.hierarchy import linkage, leaves_list
+import nbformat
+from collections import defaultdict
+import plotly.graph_objects as go
 
 warnings.filterwarnings('ignore')
 
@@ -118,7 +121,7 @@ class AtlasPlotting:
             save=f"_{dir_name}_masked_colored_{color_by}_legend.png"
         )
 
-        # Create version without 'Other' in legend ##lightblue if no value found
+        # Create version without m/a ##lightblue if no value found
         adata_subset = adata[adata.obs[color_by].isin(mask_values)].copy()
         adata_subset.obs[color_by] = adata_subset.obs[color_by].cat.remove_unused_categories()
 
@@ -162,14 +165,11 @@ class AtlasPlotting:
         
         size_col = f"{color_col_filtered}_sizes"
         adata.obs[size_col] = background_size  # default small size
-        #adata.obs.loc[adata.obs[color_col_filtered] != np.nan, size_col] = highlight_size
         adata.obs.loc[~pd.isna(adata.obs[color_col_filtered]), size_col] = highlight_size
-        #categories = list(mask_values)
         mask_value_counts = adata.obs[color_by].value_counts()
         mask_values_ordered = sorted(mask_values, key=lambda x: mask_value_counts.get(x, 0),reverse=True)
         categories = mask_values_ordered
   
-        #categories = [np.nan] + list(mask_values)
         adata.obs[color_col_filtered] = pd.Categorical(
             adata.obs[color_col_filtered],
             categories=categories
@@ -603,6 +603,181 @@ class AtlasPlotting:
 
         return fig , fig_grey
     
+    def sample_and_cell_counts_barplot_break_axis(self, adata, level_column, sample_column="Sample_ID",
+                                              figsize=(5, 5), title=None, save_name=None, 
+                                              custom_palette=False, xlabel=None,
+                                              break_point=None, break_ratio=0.3, break_gap=0.02,
+                                              plot_type="samples"):
+
+        
+        if level_column not in adata.obs.columns or sample_column not in adata.obs.columns:
+            raise ValueError(f"Columns '{level_column}' and/or '{sample_column}' not found in adata.obs.")
+        
+        if plot_type not in ["samples", "cells"]:
+            raise ValueError("plot_type must be either 'samples' or 'cells'")
+        
+        # Calculate counts based on plot type
+        if plot_type == "samples":
+            counts = adata.obs.groupby(level_column)[sample_column].nunique()
+            ylabel = "Number of Samples"
+            plot_title = "Samples per Category"
+        else:  # cells
+            counts = adata.obs[level_column].value_counts()
+            ylabel = "Number of Cells"
+            plot_title = "Cells per Category"
+        
+        # Sort by count values
+        sorted_categories = counts.sort_values(ascending=False).index.tolist()
+        counts = counts.reindex(sorted_categories)
+        
+        # Auto-calculate break point if not provided
+        if break_point is None:
+            break_point = np.percentile(counts.values, 75)
+        
+        # Palette
+        if custom_palette:
+            try:
+                color_dict = self.config["palettes"][level_column]
+                colors = [color_dict[cat] for cat in sorted_categories]
+            except KeyError:
+                raise ValueError(f"Custom palette not found for level '{level_column}' in config['palettes']")
+        else:
+            palette = sns.color_palette("pastel", len(sorted_categories))
+            color_dict = dict(zip(sorted_categories, palette))
+            colors = [color_dict[cat] for cat in sorted_categories]
+        
+        # Create figure with broken axis layout
+        fig = plt.figure(figsize=figsize)
+        
+        # Grid: 2 rows for upper and lower sections
+        gs = gridspec.GridSpec(2, 1, height_ratios=[break_ratio, 1-break_ratio], 
+                            hspace=break_gap)
+        
+        # Create upper and lower subplots
+        ax_upper = fig.add_subplot(gs[0])
+        ax_lower = fig.add_subplot(gs[1], sharex=ax_upper)
+        
+        # Plot the same data on both axes
+        ax_upper.bar(sorted_categories, counts.values, color=colors)
+        ax_lower.bar(sorted_categories, counts.values, color=colors)
+        
+        # Set y-limits
+        max_val = np.max(counts.values)
+        ax_upper.set_ylim(break_point, max_val * 1.15)
+        ax_lower.set_ylim(0, break_point * 0.9)
+        
+        # Hide connecting spines
+        ax_upper.spines['bottom'].set_visible(False)
+        ax_lower.spines['top'].set_visible(False)
+        
+        # Remove x-axis ticks from upper plot
+        ax_upper.tick_params(bottom=False, top=False, labelbottom=False, labeltop=False)
+        ax_lower.xaxis.tick_bottom()
+        
+        # Add break lines
+        d = 0.5  # proportion of vertical to horizontal extent of the slanted line
+        kwargs = dict(marker=[(-1, -d), (1, d)], markersize=8,
+                    linestyle="none", color='k', mec='k', mew=1, clip_on=False)
+        ax_upper.plot([0, 1], [0, 0], transform=ax_upper.transAxes, **kwargs)
+        ax_lower.plot([0, 1], [1, 1], transform=ax_lower.transAxes, **kwargs)
+        
+        # Styling
+        ax_upper.set_title(plot_title if title is None else title,
+                        fontsize=self.config["plot_configs"]["general"]["title_fontsize"],
+                        fontweight=self.config["plot_configs"]["general"]["title_fontweight"])
+        ax_lower.set_ylabel(ylabel, fontsize=12)
+        
+        # X-label
+        if xlabel:
+            ax_lower.set_xlabel(xlabel, fontsize=12, labelpad=10)
+        else:
+            ax_lower.set_xlabel(level_column.replace("_", " ").title(), fontsize=12, labelpad=10)
+        
+        # Apply styling to both axes
+        for ax in [ax_upper, ax_lower]:
+            ax.tick_params(axis='x', rotation=90)
+            ax.tick_params(axis='both', width=1.8)
+            [sp.set_linewidth(1.8) for sp in ax.spines.values()]
+            ax.grid(False)
+        
+        plt.tight_layout()
+        
+        # Save
+        if save_name is not None:
+            save_dir = self.output_dir / "sample_cell_counts"
+            save_dir.mkdir(parents=True, exist_ok=True)
+            save_path = save_dir / f"{save_name}_{plot_type}_break_axis.png"
+            fig.savefig(save_path, dpi=self.config['plot_configs']['general']['dpi_save'],
+                    bbox_inches='tight', facecolor='white')
+            print(f"Figure saved to: {save_path}")
+
+        # Create figure with broken axis layout
+        fig_grey = plt.figure(figsize=figsize)
+        
+        # Grid: 2 rows for upper and lower sections
+        gs = gridspec.GridSpec(2, 1, height_ratios=[break_ratio, 1-break_ratio], 
+                            hspace=break_gap)
+        
+        # Create upper and lower subplots
+        ax_upper = fig_grey.add_subplot(gs[0])
+        ax_lower = fig_grey.add_subplot(gs[1], sharex=ax_upper)
+        
+        # Plot the same data on both axes
+        ax_upper.bar(sorted_categories, counts.values, color="grey")
+        ax_lower.bar(sorted_categories, counts.values, color="grey")
+        
+        # Set y-limits
+        max_val = np.max(counts.values)
+        ax_upper.set_ylim(break_point, max_val * 1.15)
+        ax_lower.set_ylim(0, break_point * 0.9)
+        
+        # Hide connecting spines
+        ax_upper.spines['bottom'].set_visible(False)
+        ax_lower.spines['top'].set_visible(False)
+        
+        # Remove x-axis ticks from upper plot
+        ax_upper.tick_params(bottom=False, top=False, labelbottom=False, labeltop=False)
+        ax_lower.xaxis.tick_bottom()
+        
+        # Add break lines
+        d = 0.5  # proportion of vertical to horizontal extent of the slanted line
+        kwargs = dict(marker=[(-1, -d), (1, d)], markersize=8,
+                    linestyle="none", color='k', mec='k', mew=1, clip_on=False)
+        ax_upper.plot([0, 1], [0, 0], transform=ax_upper.transAxes, **kwargs)
+        ax_lower.plot([0, 1], [1, 1], transform=ax_lower.transAxes, **kwargs)
+        
+        # Styling
+        ax_upper.set_title(plot_title if title is None else title,
+                        fontsize=self.config["plot_configs"]["general"]["title_fontsize"],
+                        fontweight=self.config["plot_configs"]["general"]["title_fontweight"])
+        ax_lower.set_ylabel(ylabel, fontsize=12)
+        
+        # X-label
+        if xlabel:
+            ax_lower.set_xlabel(xlabel, fontsize=12, labelpad=10)
+        else:
+            ax_lower.set_xlabel(level_column.replace("_", " ").title(), fontsize=12, labelpad=10)
+        
+        # Apply styling to both axes
+        for ax in [ax_upper, ax_lower]:
+            ax.tick_params(axis='x', rotation=90)
+            ax.tick_params(axis='both', width=1.8)
+            [sp.set_linewidth(1.8) for sp in ax.spines.values()]
+            ax.grid(False)
+        
+        plt.tight_layout()
+        
+        # Save
+        if save_name is not None:
+            save_dir = self.output_dir / "sample_cell_counts"
+            save_dir.mkdir(parents=True, exist_ok=True)
+            save_path = save_dir / f"{save_name}_{plot_type}_break_axis_grey.png"
+            fig_grey.savefig(save_path, dpi=self.config['plot_configs']['general']['dpi_save'],
+                    bbox_inches='tight', facecolor='white')
+            print(f"Figure saved to: {save_path}")
+        
+        
+    
     def matrix_markers(self, adata, groupby_column, n_markers=5, method="wilcoxon",
                     standard_scale="var", figsize=(12, 8), title=None, save_name=None,
                      **kwargs):
@@ -717,3 +892,164 @@ class AtlasPlotting:
             print(f"Matrixplot saved to: {save_path}")
         
         return fig_dot, fig_matrix
+    
+    ## Sankey plot ##
+
+    def create_hierarchical_cell_list(self, adata, levels=[]):
+        if not levels:
+            raise ValueError("You must specify at least one level.")
+
+        obs_df = adata.obs
+        #hierarchy = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+        if len(levels) == 2:
+            hierarchy = defaultdict(lambda: defaultdict(int))
+        elif len(levels) == 3:
+            hierarchy = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+
+        for _, row in obs_df.iterrows():
+            if len(levels) == 1:
+                level1 = row[levels[0]]
+                hierarchy[level1] += 1
+
+            elif len(levels) == 2:
+                level1 = row[levels[0]]
+                level2 = row[levels[1]]
+                hierarchy[level1][level2] += 1
+
+            elif len(levels) == 3:
+                level1 = row[levels[0]]
+                level2 = row[levels[1]]
+                level3 = row[levels[2]]
+                hierarchy[level1][level2][level3] += 1
+
+            else:
+                raise ValueError("Only 1 to 3 levels supported.")
+
+        result_list = []
+
+        # Format results based on levels
+        if len(levels) == 1:
+            for level1, count in hierarchy.items():
+                result_list.append(f"{level1} [{count}]")
+
+        elif len(levels) == 2:
+            for level1, level2_dict in hierarchy.items():
+                level1_count = sum(level2_dict.values())
+                result_list.append(f"{level1} [{level1_count}]")
+                for level2, count in level2_dict.items():
+                    result_list.append(f"  {level2}  [{count}]")
+
+        elif len(levels) == 3:
+            for level1, level2_dict in hierarchy.items():
+                level1_count = sum(sum(level3_dict.values()) for level3_dict in level2_dict.values())
+                result_list.append(f"{level1} [{level1_count}]")
+                for level2, level3_dict in level2_dict.items():
+                    level2_count = sum(level3_dict.values())
+                    result_list.append(f"  {level2}  [{level2_count}]")
+                    for level3, count in level3_dict.items():
+                        result_list.append(f"    {level3}   [{count}]")
+
+        return result_list
+
+    def create_hierarchical_cell_string(self, adata, levels):
+        hierarchical_list = self.create_hierarchical_cell_list(adata, levels=levels)
+        return '\n'.join(hierarchical_list)
+    
+    def plot_sankey(self, adata,levels=[],save_name=None,width=1100,height=800):
+
+        hierarchy_string = self.create_hierarchical_cell_string(adata,levels)
+
+        labels = []
+        sources = []
+        targets = []
+        values = []
+
+        label_map = {}
+        def get_label_index(label):
+            if label not in label_map:
+                label_map[label] = len(labels)
+                labels.append(label)
+            return label_map[label]
+
+        sankey_text = hierarchy_string
+        # Parse lines
+        parent_stack = []
+        for line in sankey_text.strip().split('\n'):
+            indent = len(line) - len(line.lstrip())
+            name, count = line.strip().rsplit(' [', 1)
+            value = int(count[:-1])
+            level = indent // 2
+
+            parent_stack = parent_stack[:level]
+            parent_stack.append(name)
+
+            if level > 0:
+                source = get_label_index(parent_stack[level - 1])
+                target = get_label_index(parent_stack[level])
+                sources.append(source)
+                targets.append(target)
+                values.append(value)
+            else:
+                get_label_index(name)
+
+        # Plot Sankey
+        fig = go.Figure(data=[go.Sankey(
+            node=dict(pad=15, thickness=20,color="grey"), #label=labels
+            link=dict(source=sources, target=targets, value=values,color="lightgrey")
+        )])
+
+
+        step = 1.0 / len(labels)
+        y_positions = [i * step for i in range(len(labels))]
+
+
+        fig.update_layout(
+            width=(width/3),
+            height=height,
+            font_size=12,
+            margin=dict(l=50, r=50, t=50, b=50)
+        )
+        fig.data[0].arrangement = "snap"
+
+        # Save
+        if save_name is not None:
+            save_dir = self.output_dir / "sankey_plot"
+            save_dir.mkdir(parents=True, exist_ok=True)
+            save_path = save_dir / f"{save_name}.png"
+            fig.write_image(save_path,
+                width=(width/3), 
+                height=height, 
+                scale=2,
+                )
+            print(f"Figure saved to: {save_path}")
+
+        # Plot Sankey
+        fig = go.Figure(data=[go.Sankey(
+            node=dict(pad=15, thickness=20,color="grey", label=labels),
+            link=dict(source=sources, target=targets, value=values,color="lightgrey")
+        )])
+
+
+        step = 1.0 / len(labels)
+        y_positions = [i * step for i in range(len(labels))]
+
+
+        fig.update_layout(
+            width=width,
+            height=height,
+            font_size=12,
+            margin=dict(l=50, r=50, t=50, b=50)
+        )
+        fig.data[0].arrangement = "snap"
+
+        # Save
+        if save_name is not None:
+            save_dir = self.output_dir / "sankey_plot"
+            save_dir.mkdir(parents=True, exist_ok=True)
+            save_path = save_dir / f"{save_name}_labels.png"
+            fig.write_image(save_path,
+                width=width, 
+                height=height, 
+                scale=2,
+                )
+            print(f"Figure saved to: {save_path}")
