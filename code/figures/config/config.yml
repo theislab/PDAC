@@ -34,6 +34,10 @@ plot_configs:
 palettes:
   continuous: viridis
   divergent: bwr
+  Level_1:
+    Immune Cell: "#4363d8"  
+    Epithelial Cell: "#e6194B"
+    Stromal Cell: "#25e907"
   Level_2:
     Lymphoid: "#028E95"
     Myeloid: "#f56d18"
@@ -151,52 +155,70 @@ palettes:
     'Tumor-Associated Endothelial Cell': '#7b4173'
     'Vascular Endothelial Cell': '#a55194'
 
-  TreatmentType: ##new
-    Untreated: "#999999"  # Grey
+  TreatmentType: 
+    Untreated: "#999999"  
     Chemotherapy: "#0b559f"
     Chemotherapy + Radiotherapy: "#5fa8d3"
     Chemotherapy + Radiotherapy + Immunotherapy: "#bad6eb"
     Other: "#ff7f00"
     Unknown: "#BBBBBB"
 
-  TreatmentType_mouse: ##new
-    Untreated: "#999999"  # Grey
+  TreatmentType_mouse:
+    Untreated: "#999999"  
     Chemotherapy: "#0b559f"
     Chemotherapy + Immunotherapy: "#008080"
     Immunotherapy: "#008000"
 
-  Model: #new
-    orthotopic: "#0072B2"  # Blue
-    endogenous:   "#D55E00"   # Vermillion
+  Model:
+    orthotopic: "#0072B2"  
+    endogenous:   "#D55E00"   
 
-  Data_Source: #new
-    public data:      "#d55607" #
-    in house:   "#f6a974" # 
+  Data_Source:
+    public data:      "#d55607"
+    in house:   "#f6a974"
 
-  Dataset: #new
-    in_house:      "#56B4E9" # Sky Blue
-    Chen_2024:     "#E69F00"  # Orange
-    Donahue_2024:  "#009E73"  # Green
-    Rupert_2025:   "#F0E442"  # Yellow
-    Chen_2021:     "#CC79A7"  # Pink
-    Carstens_2021: "#999999"  # Grey
-    Han_2023:      "#B79F00"  # Olive 
-    Erdem_2024:    "#A65628"  # Brown
+  Dataset:
+    in_house:      "#56B4E9"
+    Chen_2024:     "#E69F00"  
+    Donahue_2024:  "#009E73"
+    Rupert_2025:   "#F0E442"
+    Chen_2021:     "#CC79A7"
+    Carstens_2021: "#999999"
+    Han_2023:      "#B79F00"
+    Erdem_2024:    "#A65628"
 
-  TreatmentStatus: #new
-    Untreated: "#999999"  #  Grey
-    Treated:   "#E41A1C"     # Vivid Red
+  Dataset_Human: 
+      Ding_2022:       "#E69F00"
+      Simeone_2023:    "#56B4E9"
+      Hwang_2022:      "#009E73"
+      Yue_2020:        "#F0E442"
+      Zhang_2023:      "#CC79A7"
+      Caronni_2023:    "#0072B2"
+      Peng_2019:       "#D55E00"
+      Steele_2020:     "#999999"
+      Schalck_2022:    "#B79F00"
+      Carpenter_2023:  "#A65628"
+      Kim_2022:        "#CC6677"
+      Lee_2021:        "#117733"
+      Elyada_2019:     "#882255"
+      Lin_2020:        "#44AA99"  
+      Schlesinger_2020: "#88CCEE"  
+      Kemp_2020:       "#DDCC77"  
 
-  Is_Core: #new
+  TreatmentStatus: 
+    Untreated: "#999999"  
+    Treated:   "#E41A1C"     
+
+  Is_Core: 
     Extension: "#0b559f"
     Core: "#bad6eb"
 
-  Sex: #new
+  Sex: 
     Male: "#56B4E9"
     Female: "#CC79A7"
     Unknown: "#BBBBBB"
 
-  Age: #new
+  Age: 
     80s: "#1f78b4"
     70s: "#ff7f00"
     60s: "#e31a1c"
