@@ -1,0 +1,230 @@
+plot_configs:
+  general:
+    dpi: 75
+    dpi_save: 300
+    legend_fontsize: 12
+    legend_fontweight: bold
+    title_fontsize: 14
+    title_fontweight: bold
+    font_family: "DejaVu Sans"
+  embeddings_plots:
+    alpha: 0.75
+    frameon: false
+    add_outline: true
+    layer: log_norm
+    legend_fontsize: 12
+    outline_color: [black, white]
+    outline_width: [.2, .025]
+    ncols: 1
+    vmax: 'p98'
+    cmap: viridis
+    na_color: white
+    na_in_legend: false
+  continuous_plots:
+    layer: log_norm
+    var_group_rotation: 90
+    cmap: viridis
+  rank_genes_plots:
+    values_to_plot: logfoldchanges
+    vmin: -5
+    vmax: 5
+    var_group_rotation: 90
+    min_logfoldchange: 2
+    cmap: bwr
+palettes:
+  continuous: viridis
+  divergent: bwr
+  Level_1:
+    Immune Cell: "#4363d8"  
+    Epithelial Cell: "#e6194B"
+    Stromal Cell: "#25e907"
+  Level_2:
+    Lymphoid: "#028E95"
+    Myeloid: "#f56d18"
+    Malignant Cell: "#ff0000"
+    Stromal Cell: "#25e907"
+    Endothelial Cell: "#9c0101"
+    Exocrine Cell: "#ea7b95"
+    Endocrine Cell: "#f5d276"
+
+  Level_3: ##updated by daniele
+    Macrophage:                   "#8b4513"
+    Acinar (REG+) Cell:           "#8a2be2"
+    Malignant Cell - Mesenchymal: "#483d8b"
+    B Cell:                       "#b03060"
+    Cancer Associated Fibroblast: "#dc143c"
+    Malignant Cell - Epithelial:  "#008b8b"
+    Monocyte:                     "#808000"
+    Epsilon Cell:                 "#ff8c00"
+    CD4+ T Cell:                  "#8fbc8f"
+    Ductal Cell:                  "#ffd700"
+    Ductal Cell (atypical):       "#00ff00"
+    Fibroblast:                   "#dc143c"
+    NK Cell:                      "#ff4500"
+    Mixed T Cell:                 "#800080"
+    Gamma Cell:                   "#add8e6"
+    CD8+ T Cell:                  "#00008b"
+    Neutrophil:                   "#006400"
+    Malignant Cell - EMT:         "#bc8f8f"
+    Endothelial Cell:             "#dda0dd"
+    Alpha Cell:                   "#1e90ff"
+    ADM Cell:                     "#00ff00"
+    Dendritic Cell:               "#00fa9a"
+    Beta Cell:                    "#ff00ff"
+    Acinar Idling Cell:           "#dc143c"
+    Delta Cell:                   "#00bfff"
+    Acinar Cell:                  "#00ffff"
+    Plasma Cell:                  "#0000ff"
+    Adipocyte:                    "#adff2f"
+    Mast Cell:                    "#ffe4c4"
+    Other Endocrine:              "#000000"
+    Pericyte:                     "#ff1493"
+    Schwann Cell:                 "#a5a5a5"
+    Smooth Muscle Cell:           "#b22222"
+
+
+  Level_4: #updated 
+    'Acinar (REG+) Cell': '#a6cee3'
+    'Acinar Cell': '#b2df8a'
+    'Acinar Idling Cell': '#fdbf6f'
+    'ADM Cell': '#cab2d6'
+    'Adipocyte': '#ffff99'
+    'Alpha Cell': '#b15928'
+    'apCAF': '#1f78b4'
+    'B Cell - Activated': '#1f78b4'
+    'B Cell - Germinal Center': '#33a02c'
+    'B Cell - Memory': '#e31a1c'
+    'B Cell - Naive': '#6a3d9a'
+    'B-reg': '#b15928'
+    'Beta Cell': '#1f78b4'
+    'CD4+ Memory T Cell': '#a6cee3'
+    'CD4+ Naive T Cell': '#b2df8a'
+    'CD4+ Th1 Cell': '#fb9a99'
+    'CD4+ Th17 Cell': '#e31a1c'
+    'CD4+ Th2 Cell': '#cab2d6'
+    'CD4+ Th22 Cell': '#1f78b4'
+    'CD8+ Effector T Cell': '#a6cee3'
+    'CD8+ Memory T Cell': '#b2df8a'
+    'CD8+ Naive T Cell': '#fb9a99'
+    'CD8+ Terminal Effector T Cell': '#cab2d6'
+    'CD8+ Tissue-Resident Memory T Cell': '#b15928'
+    'CD8+ Exhausted T Cell': '#33a02c' 
+    'Dendritic Cell - Activated': '#e377c2'
+    'Dendritic Cell - cDC1': '#1f78b4'
+    'Dendritic Cell - cDC2': '#e31a1c'
+    'Dendritic Cell - pDC': '#6a3d9a'
+    'Delta Cell': '#bcbd22'
+    'Double Positive CD4+CD8+ T Cell': '#e31a1c'
+    'Ductal Cell': '#17becf'
+    'Ductal Cell (atypical)': '#9edae5'
+    'Epsilon Cell': '#393b79'
+    'Fibroblast': '#5254a3'
+    'Gamma Cell': '#6b6ecf'
+    'γδ T Cell (Vδ1)': '#6a3d9a'
+    'iCAF': '#9c9ede'
+    'Lymphatic Endothelial Cell': '#637939'
+    'Macrophage - angiogenic TAM': '#1f78b4'
+    'Macrophage - antigen processing TAM': '#ff7f00'
+    'Macrophage - CD3+ TAM': '#e31a1c'
+    'Macrophage - C1Q+ TAM': '#6a3d9a'
+    'Macrophage - lipid processing TAM': '#b15928'
+    'Malignant Cell - Pit Like': "#a6cee3"
+    'Malignant Cell - Acinar-like': "#b2df8a"
+    'Malignant Cell - Epithelial': "#fb9a99"
+    'Malignant Cell - Hypoxia': "#fdbf6f"
+    'Malignant Cell - EMT': "#cab2d6"
+    'Malignant Cell - Highly Proliferative': "#e31a1c"
+    'Malignant Cell - Mesenchymal': "#fed683"
+    'Malignant Cell - Highly Invasive': "#6a3d9a"
+    'Malignant Cell - Senescence': "#1f78b4"
+    'Malignant Cell - Apoptotic': "#b15928"
+    'Mast Cell': '#393b79'
+    'Monocyte': '#6b6ecf'
+    'myCAF': '#9c9ede'
+    'Neutrophil - N0': '#1f78b4'
+    'Neutrophil - N1': '#33a02c'
+    'Neutrophil - N2': '#b15928'
+    'NK Cell': '#cedb9c'
+    'Other Endocrine': '#8c6d31'
+    'Pericyte': '#bd9e39'
+    'Plasma Cell': '#e7ba52'
+    'Plasmablast': '#e7969c'
+    'Schwann Cell': '#843c39'
+    'Smooth Muscle Cell': '#ad494a'
+    'T-reg': '#b15928'
+    'Tumor-Associated Endothelial Cell': '#7b4173'
+    'Vascular Endothelial Cell': '#a55194'
+
+  TreatmentType: 
+    Untreated: "#999999"  
+    Chemotherapy: "#0b559f"
+    Chemotherapy + Radiotherapy: "#5fa8d3"
+    Chemotherapy + Radiotherapy + Immunotherapy: "#bad6eb"
+    Other: "#ff7f00"
+    Unknown: "#BBBBBB"
+
+  TreatmentType_mouse:
+    Untreated: "#999999"  
+    Chemotherapy: "#0b559f"
+    Chemotherapy + Immunotherapy: "#008080"
+    Immunotherapy: "#008000"
+
+  Model:
+    orthotopic: "#0072B2"  
+    endogenous:   "#D55E00"   
+
+  Data_Source:
+    public data:      "#d55607"
+    in house:   "#f6a974"
+
+  Dataset:
+    in_house:      "#56B4E9"
+    Chen_2024:     "#E69F00"  
+    Donahue_2024:  "#009E73"
+    Rupert_2025:   "#F0E442"
+    Chen_2021:     "#CC79A7"
+    Carstens_2021: "#999999"
+    Han_2023:      "#B79F00"
+    Erdem_2024:    "#A65628"
+
+  Dataset_Human: 
+      Ding_2022:       "#E69F00"
+      Simeone_2023:    "#56B4E9"
+      Hwang_2022:      "#009E73"
+      Yue_2020:        "#F0E442"
+      Zhang_2023:      "#CC79A7"
+      Caronni_2023:    "#0072B2"
+      Peng_2019:       "#D55E00"
+      Steele_2020:     "#999999"
+      Schalck_2022:    "#B79F00"
+      Carpenter_2023:  "#A65628"
+      Kim_2022:        "#CC6677"
+      Lee_2021:        "#117733"
+      Elyada_2019:     "#882255"
+      Lin_2020:        "#44AA99"  
+      Schlesinger_2020: "#88CCEE"  
+      Kemp_2020:       "#DDCC77"  
+
+  TreatmentStatus: 
+    Untreated: "#999999"  
+    Treated:   "#E41A1C"     
+
+  Is_Core: 
+    Extension: "#0b559f"
+    Core: "#bad6eb"
+
+  Sex: 
+    Male: "#56B4E9"
+    Female: "#CC79A7"
+    Unknown: "#BBBBBB"
+
+  Age: 
+    80s: "#1f78b4"
+    70s: "#ff7f00"
+    60s: "#e31a1c"
+    50s: "#6a3d9a"
+    40s: "#b15928"
+    30s: "#a6cee3"
+    20s: "#b2df8a"
+    Unknown: "#BBBBBB"
+  
