@@ -1,0 +1,205 @@
+{
+    "CD8 T cells": {
+        "celltypes": [
+            "CD8+ Tissue-Resident Memory T Cell",
+            "CD8+ Terminal Effector T Cell",
+            "CD8+ Memory T Cell",
+            "CD8+ Exhausted T Cell",
+            "CD8+ Effector T Cell",
+            "CD8+ Naive T Cell"
+        ],
+        "markers": {
+            "CD8+ Tissue-Resident Memory T Cell": ["ITGAE", "CXCR6"],
+            "CD8+ Terminal Effector T Cell": ["ZEB2", "GZMB"],
+            "CD8+ Memory T Cell": ["CCR7", "CD27"],
+            "CD8+ Exhausted T Cell": ["PDCD1", "TOX"],
+            "CD8+ Effector T Cell":  ["GZMK", "PRF1"],
+            "CD8+ Naive T Cell": ["SELL", "CCR7", "LEF1"]
+        }
+    },
+    "CD4 T cells": {
+        "celltypes": [
+            "CD4+ Memory T Cell",
+            "CD4+ Th1 Cell",
+            "CD4+ Th2 Cell",
+            "CD4+ Th17 Cell",
+            "CD4+ Th22 Cell",
+            "CD4+ Naive T Cell"
+        ],
+        "markers": {
+            "CD4+ Memory T Cell": ["GPR183", "TCF7"],
+            "CD4+ Th1 Cell": ["STAT4", "CXCR3"],
+            "CD4+ Th2 Cell": ["GATA3", "CCR4"],
+            "CD4+ Th17 Cell": ["RORC", "KLRB1"],
+            "CD4+ Th22 Cell":["IL22", "CCR10"],
+            "CD4+ Naive T Cell": ["CCR7", "LEF1"]
+        }
+    },
+    "Other T cells": {
+        "celltypes": [
+            "T-reg",
+            "γδ T Cell (Vδ1)",
+            "Double Positive CD4+CD8+ T Cell",
+            "NK Cell"
+        ],
+        "markers": {
+            "T-reg": ["FOXP3", "CTLA4"],
+            "γδ T Cell (Vδ1)": ["TRDC", "TBX21"],
+            "Double Positive CD4+CD8+ T Cell": ["CD4", "CD8A" ],
+            "NK Cell": ["NCAM1", "NKG7"]
+        }
+    },
+    "B cells and Plasma cells": {
+        "celltypes": [
+            "B Cell - Naive",
+            "B Cell - Memory",
+            "B Cell - Activated",
+            "B Cell - Germinal Center",
+            "B-reg",
+            "Plasmablast",
+            "Plasma Cell"
+        ],
+        "markers": {
+            "B Cell - Naive": ["IL7R", "IGHM", "TCL1A", "CD19"],
+            "B Cell - Memory": ["CD27", "IGHE", "IGHA1"],
+            "B Cell - Activated": ["IGHM", "CD69", "CD86"],
+            "B Cell - Germinal Center": ["AICDA", "BCL6", "RGS13", "S1PR2"],
+            "B-reg": ["TFRC", "CD44", "TGFB1"],
+            "Plasmablast": ["CD27", "CD38", "PRDM1", "IGHG1", "MKI67"],
+            "Plasma Cell":["MZB1", "XBP1", "PRDM1", "SDC1"]
+        }
+    },
+    "Dendritic and Mast Cells": {
+        "celltypes": [
+            "Dendritic Cell - cDC1",
+            "Dendritic Cell - cDC2",
+            "Dendritic Cell - pDC",
+            "Dendritic Cell - Activated",
+            "Mast Cell"
+        ],
+        "markers": {
+            "Dendritic Cell - cDC1": ["ITGAE", "BTLA", "CADM1"],
+            "Dendritic Cell - cDC2": ["CD1C", "CLEC10A", "SIRPA"],
+            "Dendritic Cell - pDC": ["IL3RA", "CLEC4C", "TCF4"],
+            "Dendritic Cell - Activated": ["CD83", "CD86", "CD80"],
+            "Mast Cell": ["TPSAB1", "KIT", "CPA3"]
+        }
+    },
+    "Macrophages and Monocytes": {
+        "celltypes": [
+            "Monocyte",
+            "Macrophage - C1Q+ TAM",
+            "Macrophage - CD74+ antigen processing TAM",
+            "Macrophage - angiogenic TAM",
+            "Macrophage - lipid processing TAM",
+            "Macrophage - CD3+ TAM"
+        ],
+        "markers": {
+            "Monocyte": ["DPYD", "ELMO1"],
+            "Macrophage - C1Q+ TAM": ["C1QA", "CD163"],
+            "Macrophage - CD74+ antigen processing TAM": ["CD74", "IL1B"],
+            "Macrophage - angiogenic TAM": ["VCAN", "SLC2A3"],
+            "Macrophage - lipid processing TAM": ["APOE", "TREM2"],
+            "Macrophage - CD3+ TAM": ["CD3E", "CD2"]
+        }
+    },
+    "Neutrophils": {
+        "celltypes": [
+            "Neutrophil - N0",
+            "Neutrophil - N1",
+            "Neutrophil - N2"
+        ],
+        "markers": {
+            "Neutrophil - N0": ["S100A8", "S100A9"],
+            "Neutrophil - N1": ["TNF", "LCN2"],
+            "Neutrophil - N2": ["THBS1", "VEGFA"]
+        }
+    },
+    "Malignant Cells": {
+        "celltypes": [
+            "Malignant Cell - Epithelial",
+            "Malignant Cell - Mesenchymal",
+            "Malignant Cell - EMT",
+            "Malignant Cell - Hypoxia",
+            "Malignant Cell - Senescence",
+            "Malignant Cell - Apoptotic",
+            "Malignant Cell - Acinar-like",
+            "Malignant Cell - Pit Like",
+            "Malignant Cell - Highly Proliferative",
+            "Malignant Cell - Highly Invasive"
+        ],
+        "markers": {
+            "Malignant Cell - Epithelial": ["EPCAM", "CLDN4"],
+            "Malignant Cell - Mesenchymal": ["THY1", "FN1"],
+            "Malignant Cell - EMT": ["ZEB1", "CDH2"],
+            "Malignant Cell - Hypoxia": ["HIF1A", "VEGFA"],
+            "Malignant Cell - Senescence": ["CDKN1A", "LMNA"],
+            "Malignant Cell - Apoptotic": ["BCL2", "FAS"],
+            "Malignant Cell - Acinar-like": ["REG3A", "REG3G"],
+            "Malignant Cell - Pit Like": ["MUC5AC", "CLDN18"],
+            "Malignant Cell - Highly Proliferative": ["MKI67", "TOP2A"],
+            "Malignant Cell - Highly Invasive": ["MMP9", "MMP14"]
+        }
+    },
+    "Fibroblasts": {
+        "celltypes": ["iCAF", "myCAF"],
+        "markers": {
+            "iCAF": ["CCL2", "CXCL12", "PDGFRA"],
+            "myCAF": ["ACTA2", "TAGLN", "S100A4"]
+        }
+    },
+    "Endothelial Cells": {
+        "celltypes": [
+            "Vascular Endothelial Cell",
+            "Lymphatic Endothelial Cell",
+            "Tumor-Associated Endothelial Cell"
+        ],
+        "markers": {
+            "Vascular Endothelial Cell": ["PECAM1", "CDH5", "PLVAP", "EHD4", "CLEC14A"],
+            "Lymphatic Endothelial Cell": ["PROX1", "PDPN", "LYVE1", "FLT4"],
+            "Tumor-Associated Endothelial Cell": ["DDIT4", "TIE1", "SEMA6B", "PLCB1"]
+        }
+    },
+    "Other Stromal Cells": {
+        "celltypes": [
+            "Pericyte",
+            "Smooth Muscle Cell",
+            "Schwann Cell",
+            "Adipocyte"
+        ],
+        "markers": {
+            "Pericyte": ["PDGFRB", "RGS5"],
+            "Smooth Muscle Cell": ["ACTA2", "MYH11"],
+            "Schwann Cell": ["SOX10", "MPZ"],
+            "Adipocyte": ["PLIN1", "FABP4"]
+        }
+    },
+    "Exocrine Cells": {
+        "celltypes": [
+            "Acinar Cell",
+            "Acinar (REG+) Cell",
+            "Acinar Idling Cell",
+            "Ductal Cell",
+            "Ductal Cell (atypical)"
+        ],
+        "markers": {
+            "Acinar Cell": ["CPB1", "PRSS3", "CPA2"],
+            "Acinar (REG+) Cell": ["REG1B", "REG3A", "REG3G"],
+            "Acinar Idling Cell": ["RBPJL", "CHRM3", "LRIG1"],
+            "Ductal Cell": ["CFTR", "ANXA4"],
+            "Ductal Cell (atypical)": ["CFTR", "KRT19"]
+        }
+    },
+    "Endocrine Cells": {
+        "celltypes": [
+            "Alpha Cell",
+            "Beta Cell",
+            "Other Endocrine"
+        ],
+        "markers": {
+            "Alpha Cell": ["GCG", "ARX", "MAFB"],
+            "Beta Cell": ["INS", "IAPP"],
+            "Other Endocrine": ["CHGA", "SYP"]
+        }
+    }
+}
