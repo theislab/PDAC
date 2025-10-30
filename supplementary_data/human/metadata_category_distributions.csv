@@ -1,0 +1,53 @@
+obs,category,cells,samples
+Age,20s,5256,1
+Age,30s,6974,3
+Age,40s,26354,8
+Age,50s,94556,28
+Age,60s,264245,53
+Age,70s,201824,38
+Age,80s,60020,10
+Age,Unknown,419087,116
+Dataset,Caronni_2023,71985,10
+Dataset,Carpenter_2023,33309,11
+Dataset,Ding_2022,205871,33
+Dataset,Elyada_2019,18285,9
+Dataset,Hwang_2022,186330,43
+Dataset,Kemp_2020,2714,5
+Dataset,Kim_2022,29622,5
+Dataset,Lee_2021,22440,8
+Dataset,Lin_2020,14613,16
+Dataset,Peng_2019,56079,35
+Dataset,Schalck_2022,40971,14
+Dataset,Schlesinger_2020,5387,1
+Dataset,Simeone_2023,199952,27
+Dataset,Steele_2020,42259,19
+Dataset,Yue_2020,76094,13
+Dataset,Zhang_2023,72405,8
+Is_Core,Core,804862,191
+Is_Core,Extension,273454,66
+Sex,Female,313919,67
+Sex,Male,345310,74
+Sex,Unknown,419087,116
+Technology,scRNA-seq,833098,203
+Technology,snRNA-seq,245218,54
+Treatment,Abraxane,4093,1
+Treatment,FOLFIRINOX,120563,13
+Treatment,FOLFIRINOX + Gemcitabine/Abraxane,2383,1
+Treatment,FOLFIRINOX + Radiotherapy,2738,1
+Treatment,FOLFIRINOX + Radiotherapy + Capecitabine/5-FU,66876,16
+Treatment,FOLFIRINOX + Radiotherapy + Capecitabine/5-FU + Losartan,6957,3
+Treatment,FOLFIRINOX + Radiotherapy + Nivolumab,4994,1
+Treatment,FOLFIRINOX + Radiotherapy + Nivolumab + Losartan,1323,1
+Treatment,Gemcitabine/Abraxane,72042,10
+Treatment,Other,29254,7
+Treatment,Unknown,157378,28
+Treatment,Untreated,609715,175
+TreatmentStatus,Treated,311223,54
+TreatmentStatus,Unknown,157378,28
+TreatmentStatus,Untreated,609715,175
+TreatmentType,Chemotherapy,199081,25
+TreatmentType,Chemotherapy + Radiotherapy,76571,20
+TreatmentType,Chemotherapy + Radiotherapy + Immunotherapy,6317,2
+TreatmentType,Other,29254,7
+TreatmentType,Unknown,157378,28
+TreatmentType,Untreated,609715,175
