@@ -1,0 +1,31 @@
+obs,category,cells,samples
+Dataset,Carstens_2021,45043,12
+Dataset,Chen_2021,10315,4
+Dataset,Chen_2024,46084,6
+Dataset,Donahue_2024,39953,10
+Dataset,Erdem_2024,10514,4
+Dataset,Han_2023,26872,8
+Dataset,Rupert_2025,30147,4
+Dataset,in_house,393742,53
+Model,endogenous,196347,38
+Model,orthotopic,406323,63
+Sex,Female,232292,30
+Sex,Male,140604,24
+Sex,Unknown,229774,47
+Technology,scRNA-seq,556586,95
+Technology,snRNA-seq,46084,6
+Treatment,AVID200,11921,2
+Treatment,Anti-PD-1,2441,2
+Treatment,Anti-PD-1 + AVID200,687,1
+Treatment,D-CAN,5929,1
+Treatment,Ganciclovir,9042,1
+Treatment,Subasumstat,4273,2
+Treatment,Trametinib + Nintedanib,8840,3
+Treatment,Trametinib + Nintedanib + Anti-PD-L1,2350,1
+Treatment,Untreated,557187,88
+TreatmentStatus,Treated,45483,13
+TreatmentStatus,Untreated,557187,88
+TreatmentType,Chemotherapy,40005,9
+TreatmentType,Chemotherapy + Immunotherapy,3037,2
+TreatmentType,Immunotherapy,2441,2
+TreatmentType,Untreated,557187,88
