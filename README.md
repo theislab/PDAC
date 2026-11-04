@@ -37,8 +37,8 @@ a panel of independent PDAC experts.
 
 |                    | Human                                       | Mouse                                                |
 | ------------------ | ------------------------------------------- | ---------------------------------------------------- |
-| **Core atlas**     | 191 donors · >800,000 cells · 11 studies    | 53 tumours · >390,000 cells (barcode-traced)         |
-| **Extended atlas** | 257 donors · >1,000,000 cells · 16 studies  | 101 tumours · >600,000 cells                         |
+| **Core atlas**     | 191 samples · >800,000 cells · 11 studies    | 53 tumours · >390,000 cells (barcode-traced)         |
+| **Extended atlas** | 257 samples · >1,000,000 cells · 16 studies  | 101 tumours · >600,000 cells                         |
 | **Modalities**     | scRNA-seq + snRNA-seq, Xenium spatial       | scRNA-seq                                            |
 | **Sample types**   | primary tumour, adjacent normal, metastasis | orthotopic syngeneic allografts, autochthonous GEMMs |
 | **Integration**    | scANVI on a curated gene panel              | scANVI on the orthologous panel                      |
